@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 //PlayerScript inherits from MovingObject, our base class for objects that can move.
-public class Player : MovingObject
+public class PlayerScript : MovingObject
 {
 	public float restartLevelDelay = 1f;        //Delay time in seconds to restart level.
 	public int pointsPerFood = 10;              //Number of points to add to player food points when picking up a food object.
@@ -113,6 +113,11 @@ public class Player : MovingObject
 			//Add pointsPerFood to the players current food total.
 			food += pointsPerFood;
 
+			//Remove food from foods list in Game Manager.
+			//I don't know any better way to do this.
+			FoodScript fScript = other.GetComponent<FoodScript>();
+			GameManager.instance.foods.Remove (fScript);
+
 			//Disable the food object the player collided with.
 			other.gameObject.SetActive (false);
 		}
@@ -122,7 +127,7 @@ public class Player : MovingObject
 
 	//Changes player sprite if needed.
 	private void CheckSprite(){
-		print (spriteRdr.name); //Just.
+		
 	}
 
 
