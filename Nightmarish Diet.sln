@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{62AEAE4E-B18B-EA42-46BD-D06F811A4013}") = "Nightmarish Diet", "Assembly-CSharp.csproj", "{FC528AB2-26AE-14FD-3FF9-6E4A23EEAA5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC528AB2-26AE-14FD-3FF9-6E4A23EEAA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC528AB2-26AE-14FD-3FF9-6E4A23EEAA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC528AB2-26AE-14FD-3FF9-6E4A23EEAA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC528AB2-26AE-14FD-3FF9-6E4A23EEAA5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
