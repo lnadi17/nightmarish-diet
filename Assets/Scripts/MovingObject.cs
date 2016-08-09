@@ -4,7 +4,7 @@ using System.Collections;
 //The abstract keyword enables you to create classes and class members that are incomplete and must be implemented in a derived class.
 public abstract class MovingObject : MonoBehaviour
 {
-	public float moveTime = 0.1f;           //Time it will take object to move, in seconds.
+	public float moveTime = 0.05f;           //Time it will take object to move, in seconds.
 	public LayerMask blockingLayer;         //Layer on which collision will be checked.
 
 	private BoxCollider2D boxCollider;      
@@ -31,7 +31,7 @@ public abstract class MovingObject : MonoBehaviour
 		hit = Physics2D.Linecast (start, end, blockingLayer);
 		boxCollider.enabled = true;
 
-		if(hit.transform == null)
+		if(hit.transform == null || transform.tag == "Player" && hit.transform.tag != "Untagged")
 		{
 			//If nothing was hit, start SmoothMovement co-routine passing in the Vector2 end as destination
 			StartCoroutine (SmoothMovement (end));

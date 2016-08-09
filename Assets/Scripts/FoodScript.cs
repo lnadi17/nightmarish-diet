@@ -42,8 +42,7 @@ public class FoodScript : MovingObject
 			yDir = target.position.y > transform.position.y ? 1 : -1;
 		else
 			xDir = target.position.x > transform.position.x ? 1 : -1;
-
-		//Call the AttemptMove function and pass in the generic parameter Player, because food is moving and expecting to potentially encounter a Player
+			
 		AttemptMove (xDir, yDir);
 	}
 }

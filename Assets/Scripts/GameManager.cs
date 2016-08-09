@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 	//public int foodIndex; //Used to store food's index;
 
 	private BoardManager boardScript; //Store a reference to our BoardManager which will set up the level
-	private int level = 64; 
+	private int level = 1; 
 	private bool foodsMoving; //Boolean to check if foods are moving.
 
 
