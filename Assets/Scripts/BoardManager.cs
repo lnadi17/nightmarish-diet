@@ -85,7 +85,7 @@ public class BoardManager : MonoBehaviour
 		BoardSetup ();
 		InitialiseList ();
 		LayoutObjectAtRandom (wallTiles, wallCount.minimum, wallCount.maximum);
-		int foodCount = (int)Mathf.Log (level, 2f);
+		int foodCount = level;
 		LayoutObjectAtRandom (foodTiles, foodCount, foodCount);
 		Instantiate (exit, new Vector3 (columns - 1, rows - 1, 0f), Quaternion.identity);
 	}
