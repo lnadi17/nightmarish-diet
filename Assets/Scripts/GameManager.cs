@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour 
 {
 	public float levelStartDelay = 2f;
-	public float turnDelay = .1f;
+	public float turnDelay = 0.1f;
 	public static GameManager instance = null; //Static instance of GameManager which allows it to be accessed by any other script
-	public int playerFoodPoints = 100; //Player's starting food points
+	public int playerFoodPoints = 0; //Player's starting food points
 	[HideInInspector] public bool playersTurn = true; 
 	[HideInInspector] public List<FoodScript> foods; 
 	//public int foodIndex; //Used to store food's index;

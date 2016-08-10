@@ -1,15 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 //PlayerScript inherits from MovingObject, our base class for objects that can move.
 public class PlayerScript : MovingObject
 {
 	public float restartLevelDelay = 1f;        
-	public int pointsPerFood = 10;              
+	public int pointsPerFood = 5; 
+	public List<Sprite> spriteList;
+	public List<int> playerPhases;
 
 	private SpriteRenderer spriteRdr;           
 	private int food;                           
+
 
 	//Start overrides the Start function of MovingObject
 	protected override void Start ()
@@ -64,8 +68,8 @@ public class PlayerScript : MovingObject
 		//If not, it will wait until player makes a valid move.
 		if (Move (xDir, yDir, out hit)) 
 		{
-			//Every time player moves, subtract from food points total.
-			food--;
+			
+			print (food);
 			//Since the player has moved and lost food points, check if the game has ended.
 			CheckIfGameOver ();
 			//Checks if sprite needs to change.
@@ -96,7 +100,6 @@ public class PlayerScript : MovingObject
 			//Disable the food object the player collided with.
 			other.gameObject.SetActive (false);
 		}
-			
 	}
 
 
@@ -116,7 +119,7 @@ public class PlayerScript : MovingObject
 	//CheckIfGameOver checks if the player is out of food points and if so, ends the game.
 	private void CheckIfGameOver ()
 	{
-		if (food <= 0) 
+		if (food >= 100) 
 		{
 			GameManager.instance.GameOver ();
 		}

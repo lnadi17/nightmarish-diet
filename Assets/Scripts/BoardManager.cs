@@ -85,7 +85,10 @@ public class BoardManager : MonoBehaviour
 		BoardSetup ();
 		InitialiseList ();
 		LayoutObjectAtRandom (wallTiles, wallCount.minimum, wallCount.maximum);
-		int foodCount = level;
+		int foodCount = 13;
+		if(level <= 13){
+			foodCount = level;
+		}
 		LayoutObjectAtRandom (foodTiles, foodCount, foodCount);
 		Instantiate (exit, new Vector3 (columns - 1, rows - 1, 0f), Quaternion.identity);
 	}
