@@ -21,6 +21,7 @@ public class PlayerScript : MovingObject
 		spriteRdr = GetComponent<SpriteRenderer> ();
 		food = GameManager.instance.playerFoodPoints;
 		base.Start ();
+		CheckSprite ();
 	}
 
 
@@ -68,12 +69,14 @@ public class PlayerScript : MovingObject
 		//If not, it will wait until player makes a valid move.
 		if (Move (xDir, yDir, out hit)) 
 		{
-			
+			/*if(food > 0){
+				food--;
+			}*/
 			print (food);
-			//Since the player has moved and lost food points, check if the game has ended.
-			CheckIfGameOver ();
 			//Checks if sprite needs to change.
 			CheckSprite ();
+			//Since the player has moved and lost food points, check if the game has ended.
+			CheckIfGameOver ();
 			//Set the playersTurn boolean of GameManager to false now that players turn is over.
 			GameManager.instance.playersTurn = false;
 		}
@@ -105,7 +108,13 @@ public class PlayerScript : MovingObject
 
 	//Changes player sprite if needed.
 	private void CheckSprite(){
-		
+		int index = 0;
+		for (int i = 0; i < playerPhases.Count - 1; i++) {
+			if (food > playerPhases [i] && food < playerPhases [i + 1]) {
+				spriteRdr.sprite = spriteList [index];
+			}
+			index++;
+		}
 	}
 
 
