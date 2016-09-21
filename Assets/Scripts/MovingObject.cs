@@ -18,7 +18,9 @@ public abstract class MovingObject : MonoBehaviour{
 
 
 	//Move returns true if it is able to move and false if not. 
-	protected virtual bool Move (int xDir, int yDir, out RaycastHit2D hit){
+	protected virtual bool Move (int xDir, int yDir){
+		RaycastHit2D hit;
+
 		Vector2 start = transform.position;
 		Vector2 end = start + new Vector2 (xDir, yDir);
 	
@@ -47,8 +49,8 @@ public abstract class MovingObject : MonoBehaviour{
 	}
 
 	//The virtual keyword means AttemptMove can be overridden by inheriting classes using the override keyword.
-	protected virtual void AttemptMove (int xDir, int yDir){
-		RaycastHit2D hit;
-		Move (xDir, yDir, out hit);
-	}
+	//protected virtual void AttemptMove (int xDir, int yDir){
+	//	RaycastHit2D hit;
+	//	Move (xDir, yDir, out hit);
+	//}
 }

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FoodScript : MovingObject 
-{
+public class FoodScript : MovingObject {
 	private Transform target;
 
 	protected override void Start (){
@@ -13,7 +12,7 @@ public class FoodScript : MovingObject
 	}
 
 	//MoveFood is called by the GameManger each turn to tell each food to try to move towards the player.
-	public void MoveFood (){
+	public bool MoveFood (){
 		int xDir = 0;
 		int yDir = 0;
 
@@ -22,6 +21,6 @@ public class FoodScript : MovingObject
 		else
 			xDir = target.position.x > transform.position.x ? 1 : -1;
 			
-		AttemptMove (xDir, yDir);
+		return (Move (xDir, yDir));
 	}
 }

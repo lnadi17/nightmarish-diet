@@ -11,7 +11,7 @@ public class BoardManager : MonoBehaviour
 		public int minimum;
 		public int maximum;
 
-		//Assignment constructor.
+		//Assignment constructor
 		public Count (int min, int max){
 			minimum = min;
 			maximum = max;
@@ -20,7 +20,7 @@ public class BoardManager : MonoBehaviour
 
 	public int columns = 8;
 	public int rows = 8; 
-	public Count wallCount = new Count(5,9); 
+	public Count wallCount = new Count(5, 9); 
 	public GameObject exit; 
 	public GameObject[] floorTiles; 
 	public GameObject[] foodTiles; 
@@ -45,14 +45,13 @@ public class BoardManager : MonoBehaviour
 		boardHolder = new GameObject ("Board").transform; 
 		for (int x = -1; x <= columns; x++){ 
 			for (int y = -1; y <= rows; y++){ 
-				//Choose a random tile from our array of floor tile prefabs and prepare to instantiate it
 				GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
+
 				if (x == -1 || x == columns || y == -1 || y == rows){ 
 					toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
 				}
-				//Insantiante the gameObject instance using the prefab chosen for toInstantiate at the Vector3 corresponding to current grid position in loop, cast it to GameObject
+
 				GameObject instance = Instantiate (toInstantiate, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
-				//Set the parent of our newly instantiated object instance to boardHolder, this is just organizational
 				instance.transform.SetParent (boardHolder); 
 			}
 		}
@@ -70,7 +69,6 @@ public class BoardManager : MonoBehaviour
 
 	//LayoutObjectAtRandom accepts an array of game objects to choose from along with a minimum and maximum range for the number of objects to create
 	void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum){
-		//Choose a random number of objects to instantiate within the minimum and maximum limits
 		int objectCount = Random.Range (minimum, maximum + 1);
 		for (int i = 0; i < objectCount; i++) {
 			Vector3 randomPosition = RandomPosition ();
